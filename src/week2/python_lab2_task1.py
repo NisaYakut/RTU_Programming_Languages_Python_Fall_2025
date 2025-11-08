@@ -15,17 +15,27 @@ Instructions:
 4. Print your results in a clear, formatted way.
 """
 
-# TODO: Create the datasets - up to you to fill in the data
-temperatures = []
-city_population = {}
+# Step 1: Create the datasets
+temperatures = [12, 14, 15, 13, 16, 18, 17]  # example weekly temperatures in °C
+city_population = {
+    "Riga": 605000,
+    "Vilnius": 592000,
+    "Tallinn": 438000,
+    "Warsaw": 1790000,
+    "Helsinki": 655000,
+}
 
-# TODO: Compute aggregates
-average_temperature = 0
-largest_city = ""
-largest_population = 0
-total_population = 0
+# Step 2: Compute aggregates
+average_temperature = sum(temperatures) / len(temperatures)
+largest_city = max(city_population, key=city_population.get)
+largest_population = city_population[largest_city]
+smallest_city = min(city_population, key=city_population.get)
+smallest_population = city_population[smallest_city]
+total_population = sum(city_population.values())
 
-# TODO: Print results
-print("Average temperature:", average_temperature)
-print("Largest city:", largest_city, "-", largest_population)
-print("Total population:", total_population)
+# Step 3: Print results
+print("---- Weekly Data Report ----")
+print(f"Average temperature: {average_temperature:.2f}°C")
+print(f"Largest city: {largest_city} - {largest_population:,} people")
+print(f"Smallest city: {smallest_city} - {smallest_population:,} people")
+print(f"Total population: {total_population:,} people")
